@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  api:
+    build: api
+    command: gunicorn main:"create_flask_app()" -b 0.0.0.0:8000 --reload --timeout 240
+    restart: on-failure
+    volumes:
+      - ./api:/code
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True
+      - RETURN_ONLY_GENERAL_RESULTS_PAGE=False
+    ports:
+      - "8000:8000"
+
+  client:
+    build: client
+    command: gunicorn main:"create_flask_app()" -b 0.0.0.0:5000 --reload
+    volumes:
+      - ./client:/code
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True
+    ports:
+      - "5000:5000"
+    depends_on:
+      - api

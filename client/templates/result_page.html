@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+	<div id="result">
+		{% if error_text %}
+			<p>
+				Error: {{ error_text }}
+			</p>
+		{% else %}
+			{% if result_link %}
+				<p>
+					Found: <a href="{{result_link}}">{{result_link}}</a>
+				</p>
+			{% else %}
+				<p>Nothing found</p>
+			{% endif %}
+		{% endif %}
+	</div>
+</body>
+</html>
