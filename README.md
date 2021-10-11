@@ -1,3 +1,10 @@
+# Task description
+
+Here's the task: Write a simple program for querying the given website for the given pii. If the given pii is present on the website, return the url where the information is listed. If the given pii is not present on the website, indicate that in the program's output. Use the languages and packages you are most confident with.
+
+Site to query: https://www.peoplesearchexpert.com/people/
+
+
 # Usage
 
 Start app:
